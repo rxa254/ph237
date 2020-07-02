@@ -1,0 +1,147 @@
+\documentclass[12pt,twoside]{article}
+
+%\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage[svgnames]{xcolor}
+\usepackage{afterpage}
+\usepackage[none]{hyphenat}
+\usepackage[document]{ragged2e}
+
+\usepackage{geometry}
+ %\geometry{
+ %letterpaper,
+ %textwidth=7in
+ %}
+\usepackage[utf8]{inputenc}
+
+%\usepackage[cmintegrals,cmbraces,vvarbb]{newtxmath}
+\usepackage{fouriernc}
+\usepackage[T1]{fontenc}
+%\usepackage{palatino}
+\usepackage{microtype}
+
+\usepackage{fancyhdr}
+\setlength{\headheight}{15pt}% ...at least 15
+
+\usepackage[colorlinks=true, citecolor=Grey,
+            linkcolor=DarkOrchid, urlcolor=ForestGreen]{hyperref}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[RE,LO]{\textcolor{BlueViolet}{Gravitational Waves}}
+\fancyhead[LE,RO]{\textcolor{ForestGreen}{ph237: 2020}}
+
+\fancyfoot[RE,LO]{\textcolor{Orange}{Caltech}}
+\fancyfoot[LE,RO]{\textcolor{Orange}{Physics, Math, and Astronomy}}
+
+%\input mydefs.tex
+\def\vev#1{\left\langle #1\right\rangle}
+\def\hb{\hfill\break}
+\definecolor{awesome}{rgb}{1.0, 0.13, 0.32}
+
+\begin{document}
+%
+\centerline{\large\bf  \hfill Assignment IV \hfill  \today}
+
+\medskip
+\begin{description}
+\item[{\bf Reading:}] Lecture notes. Creighton 6.1.1 - 6.1.6\\
+\item[{\bf Problems:} \hfill ] Due May 7$^{\rm th}$.
+\end{description}
+
+
+\medskip
+
+\begin{enumerate}
+\item {\bf Fourier Transform of the Binary Inspiral Waveform}\\
+Suppose we have gravitational waves produced by circular binaries located at a distance $r$ toward the zenith where $\theta=0$, the strain, $h(t)$, will be
+\begin{equation}
+    h(t)=-2\frac{\mu \left[M\Omega(t)\right]^{2/3}cos[2\phi(t)]}{r}.
+\end{equation}
+The frequency, $\Omega(t)$, increases with time,
+\begin{equation}
+    \Omega(t)=\left[\frac{5}{256\mu M^{2/3}(t_0-t) }\right]^{3/8}.
+\end{equation}
+The phase, $\phi(t)$, is the time integral of the frequency $\Omega(t)$ so we have
+\begin{equation}
+    \phi(t)=\int_0^t\Omega(t')dt'=\frac{8}{5}\left(\frac{5}{256\mu M^{2/3}}\right)^{3/8}\left[(t_0-t)^{5/8}-t_0^{5/8}\right].
+\end{equation}
+In this problem, we are going to use stationary phase approximation to transform the waveform $h(t)$ to the frequency domain $\hat{h}(f)$\footnote{This problem is similar to problem 3.7 Creighton on page 93. I found the Wiki page of "stationary phase approximation" quite helpful.}.
+\begin{equation}
+\hat{h}(f)=\int_{-\infty}^{\infty}e^{-2\pi ift}h(t)dt    
+\end{equation}
+\begin{enumerate}
+    \item Write the integrand in the form $A(t)e^{i\phi(t)}$ and verify that 
+    \begin{equation}
+        \frac{d ln A}{dt} \ll \frac{d\phi}{dt} 
+    \end{equation}
+    and
+    \begin{equation}
+        \frac{d^2\phi}{dt^2} \ll \frac{d\phi}{dt}.
+    \end{equation}
+    These are conditions for stationary phase approximation.
+    \item Find the time when the phase becomes stationary, i.e., $\frac{d\phi(t)}{dt}|_{t=t_{SP}}=0$.
+    \item Expand $\phi(t)$ to second order about $t_{SP}$. 
+    \begin{equation}
+        \phi(t)\approx\phi(t_{SP})+\frac{f''(t_{SP})}{2}(t-t_{SP})^2
+    \end{equation}
+    The first order term vanishes because of (c).
+    \item Evaluate the amplitude function at $t_{SP}$ and perform the integral (Hint: this is a Gaussian integral).
+    \begin{equation}
+        \hat{h}(f)=\int_{-\infty}^\infty A(t_{SP})e^{i(\phi(t_{SP})+\frac{f''(t_{SP})}{2}(t-t_{SP})^2)}dt
+    \end{equation}
+\end{enumerate}
+
+
+
+\item {\bf Optimizing Signal Recycling for Binary Inspirals}\\
+In question 1, we found $\hat{h}(f)$. In this question, we are going to continue from question 2 of Assignment 3 and optimize the signal recycling cavity for the detection of gravitational waves $\hat{h}(f)$.
+\begin{enumerate}
+    \item The uncertainty of the photon arrival time at the detector produces a source of noise called shot noise. 
+    For $N$ photons arriving at the detector, the uncertainty is $\sqrt{N}$. 
+    Given the cavity laser power, $P$, compute the power spectral density of the shot noise $S_n(f)$. (Hint: you can get the frequency response using the SRC optimizing python script, and you want to convert the cavity power $P$ to the power at the photodetector.)
+    \item To make a good detection, we want the signal-to-noise ratio (SNR) to be greater than eight. SNR is defined as
+    \begin{equation}
+        SNR(f)=\sqrt{4\int_0^\infty \frac{\hat{h}^2(f)}{S_n(f)}df}.
+    \end{equation}
+    Your expression of $h(f)$ should have $r$ dependence, and SNR should decrease as $r$ increases. Compute the distance $R$ that gives an SNR of eight.
+    \item The SRC configuration (transmission $T_{SRM}$ and detuning phase $\phi_{SRC}$) should affect the range $R$. Please find the optimal SRM transmission and detuning phase to maximize the detection range $R$.
+\end{enumerate}
+
+
+
+\item  {\bf Longitudinal gravitational waves?} 
+
+One important feature of gravitational waves is that they are transverse.  Why shouldn't there be longitudinal gravitational waves?  In fact, people search for such longitudinal components, as part of the ``Test of General Relativity'' research direction.  Here we would like to argue that fundamentally speaking, longitudinal gravitational waves can lead to very interesting physical effects. 
+
+\begin{enumerate}
+\item 
+Suppose gravitational wave field has two pieces, a longitudinal piece $h_{\alpha\beta}^{\rm L}$ and a transverse piece $h_{\alpha\beta}^T$, both are plane waves.  Let us also assume that the $L$ piece has twice the frequency as the $T$ piece, and that they propagate along the same direction: 
+\begin{equation}
+h_{\alpha\beta}^L = \left( e^{2ik_\mu x^\mu} + e^{-2ik_\mu x^\mu}\right)H_{\alpha\beta}\,,\quad
+h_{\alpha\beta}^T =  e_{\alpha\beta} \left[A(x^\alpha) e^{i k_\mu x^\mu}+A^*(x^\alpha) e^{-i k_\mu x^\mu}\right]
+\end{equation}
+Let us assume that $H_{\alpha\beta}$ is a constant, with $H_{\alpha\beta}k^\alpha k^\beta\neq 0$, and that $A$ is a slowly varying amplitude ($A^*$ is the complex conjugate). Here $e_{\alpha\beta}$ is a constant polarization tensor. 
+
+Assume that $T$ wave is very very weak, while the $L$ wave is just usual weak.  The wave equation governing the $T$ wave --- in the presence of the $L$ wave, will be
+\begin{equation}
+\left[\eta^{\mu\nu}+ H^{\mu\nu}\right]\partial_\mu\partial_\nu h_{\alpha\beta}^T  =0
+\end{equation}
+Inserting the slow-varying amplitude representation of $h^T_{\alpha\beta}$ into the above wave equation, by inspecting how each term oscillates, show that there are terms like $e^{\pm ik_\mu x^\mu}$ and $e^{\pm 3 ik_\mu x^\mu}$. Show that extracting the $e^{i k_\mu x^\mu}$ contribution of this equation will lead to
+\begin{equation}
+2ik^\mu \partial_\mu A - k_\mu k_\nu H^{\mu\nu} A^*=0
+\end{equation}
+Show that the $e^{i k_\mu x^\mu}$ contribution will lead to the complex conjugate of the above equation. 
+\item In a particular Lorentz frame, if $k^\mu$ corresponds to frequency $\omega$, show that, along the propagation direction $z$, we will have
+\begin{equation}
+\partial_z A = \frac{k_\mu k_\nu H^{\mu\nu} }{2i\omega}A^*
+\end{equation}
+Combined this equation with its complex conjugate, show that $A$ satisfies a second order differential equation that has both a growing and a decaying solution.   What is the growth length scale? 
+\item How does this effect impact our current search for longitudinal gravitational waves?  (Yanbei doesn't know the  answer yet.)
+\end{enumerate}
+\end{enumerate}
+\bigskip
+{\color{awesome} \hrule}
+\end{document}

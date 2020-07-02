@@ -1,0 +1,1 @@
+*.png,*.jpg,*.pdf,*,svg,*.key,*.mov filter=lfs diff=lfs merge=lfs -text

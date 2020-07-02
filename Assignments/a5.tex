@@ -1,0 +1,110 @@
+\documentclass[12pt,twoside]{article}
+
+%\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage[bottom]{footmisc}
+\usepackage[svgnames]{xcolor}
+\usepackage{afterpage}
+\usepackage[none]{hyphenat}
+\usepackage[document]{ragged2e}
+
+\usepackage{geometry}
+ %\geometry{
+ %letterpaper,
+ %textwidth=7in
+ %}
+\usepackage[utf8]{inputenc}
+
+%\usepackage[cmintegrals,cmbraces,vvarbb]{newtxmath}
+\usepackage{fouriernc}
+\usepackage[T1]{fontenc}
+%\usepackage{palatino}
+\usepackage{microtype}
+
+\usepackage{fancyhdr}
+\setlength{\headheight}{15pt}% ...at least 15
+
+\usepackage[colorlinks=true, citecolor=Grey,
+            linkcolor=DarkOrchid, urlcolor=ForestGreen]{hyperref}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[RE,LO]{\textcolor{BlueViolet}{Gravitational Waves}}
+\fancyhead[LE,RO]{\textcolor{ForestGreen}{ph237: 2020}}
+
+\fancyfoot[RE,LO]{\textcolor{Orange}{Caltech}}
+\fancyfoot[LE,RO]{\textcolor{Orange}{Physics, Math, and Astronomy}}
+
+%\input mydefs.tex
+\def\vev#1{\left\langle #1\right\rangle}
+\def\hb{\hfill\break}
+\definecolor{awesome}{rgb}{1.0, 0.13, 0.32}
+
+\begin{document}
+%
+\centerline{\large\bf  \hfill Assignment V \hfill  \today}
+
+\medskip
+\begin{description}
+\item[{\bf Reading:}] Lecture Notes, Creighton 6.1.7 - 6.1.11, https://arxiv.org/abs/gr-qc/0603054, and Displacement-Noise Free forum on Moodle \\
+\item[{\bf Problems:} \hfill ] Due May 16
+\end{description}
+
+
+\medskip
+\begin{enumerate}
+\item \textbf{Cancellation of displacement noises}\\
+  In this question, we are going to discuss two more noise sources, the thermal noise and the seismic noise. They are both displacement noises that causes the mirrors to shake. Then we will explore a technique to cancel the displacement noises shown in Fig.~\ref{fig:A5_1}
+  \footnote{Rakhubovsky, Andrey A., and Sergey P. Vyatchanin. "Displacement-noise-free gravitational-wave detection with two Fabry–Perot cavities." Physics Letters A 373, no. 1 (2008): 13-18.\label{fn:dfpc}}
+  \begin{figure}[h]
+      \centering
+      \includegraphics{Figures/A5_1.jpg}
+      \caption{Double pumped Fabry–Perot cavity.\footref{fn:dfpc}}
+      \label{fig:A5_1}
+  \end{figure}
+  \begin{enumerate}
+
+  \item Let's start with the seismic noise. Seismic noises are motions of mirrors due to earthquakes, human activity, wind etc. Suppose the ground moves with a amplitude spectral density $X(f)$ as such
+\begin{equation}
+    X(f) \approx 10^{-8} \left(\frac{10\,\mbox{Hz}}{f}\right)^2 \mbox{m}/\sqrt{\mbox{Hz}}
+\end{equation}
+Given a pendulum of mass $M = 40$\,kg, Q = 10, and a length of $L = 1$\,m, calculate and plot the ASD of the motion of the mirror on the same plot as the ground noise ASD.
+
+
+% \item Now we move on to thermal noise. The molecules on the mirrors and their suspension system experience Brownian motion. This leads to the another source of noise in LIGO called the thermal noise. The power spectral density of  thermal noise is estimated to be\footnote{This equation comes from Creighton 6.1.8.2. It comes from fluctuation dissipation theorem. The derivation can be found in example 6.7, in case anyone is interested.}
+%
+%     \begin{equation}
+%        \label{eqn:fluc_diss_theo}
+%        S_x(f)=\frac{4k_B T}{(2\pi f )^2}|Re[Y(f)]|
+%     \end{equation}
+% where $Y(f)$ is the response of the system $x(f)$ to external forces. $F_{ext}(f)$, defined as \footnote{Creighton equation, 6.130b ("Admittance of the system")}
+% \begin{equation}
+%     Y(f)=2\pi i f\frac{x(f)}{F_{ext}(f)}
+% \end{equation}
+%
+% Given $T = 300\,K$, $\phi = 10^{-5}$ and the pendulum in part (a), estimate and plot the thermal noise spectrum (Hint: calculate $Y(f)$ first. Creighton 6.1.8.2 will be helpful).
+
+    \item Let's consider one Fabry-Perot cavity, like the top figure in fig.~\ref{fig:A5_1}. Given the transmissions of the mirrors as $T_a$, $T_b$, cavity length $L$ and input laser electric field $E_0$, calculate frequency responses at detectors $D_1$ and $D_2$.
+
+    \item In the last part, we have the frequency response with no noise on the mirrors. If we give both mirrors displacement PSD $S_{disp}(f)$, how is that going to change the frequency response calculated in the last part?
+
+    \item For the bottom figure in fig.~\ref{fig:A5_1}, which is totally symmetric to the top one, we have its counterparts output frequency response at $D_3$ and $D_4$. Write them down directly. Now that you have the outputs at $D_1$, $D_2$, $D_3$ and $D_4$, produce a linear combination of these signals to eliminate all information about $S_{disp}(f)$.
+\end{enumerate}
+
+  \clearpage
+  \input{a5-prob2}
+
+
+  %\clearpage
+  %\item \textbf{Making Skymaps from GW detector data}
+
+
+\end{enumerate}
+
+
+
+\bigskip
+{\color{awesome} \hrule}
+\end{document}
