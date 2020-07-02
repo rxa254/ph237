@@ -1,0 +1,84 @@
+\documentclass[11pt]{article}
+%\setlength{\oddsidemargin}{0in}
+%\setlength{\topmargin}{0.0in}
+%\setlength{\textwidth}{6.7in}
+%\setlength{\textheight}{8.5in}
+%\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage[usenames,dvipsnames]{xcolor}
+
+\usepackage{geometry}
+ \geometry{
+ letterpaper,
+ textwidth=6.8in
+ }
+\usepackage[utf8]{inputenc}
+%\usepackage{libertine}
+%\usepackage{libertinust1math}
+\usepackage[libertine,cmintegrals,cmbraces,vvarbb]{newtxmath}
+%\usepackage{newtxmath}
+%\usepackage[osf]{ebgaramond}
+\usepackage[T1]{fontenc}
+%\usepackage{palatino}
+\usepackage{microtype}
+
+\usepackage{fancyhdr}
+\usepackage[colorlinks=true]{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R,LO]{\textcolor{BlueViolet}{Gravitational Waves}}
+\fancyhead[L,RO]{ph237: 2018}
+
+\fancyfoot[R,LO]{\textcolor{Orange}{Caltech}}
+\fancyfoot[L,RO]{\textcolor{Orange}{Physics, Math, and Astronomy}}
+
+%\input mydefs.tex
+\def\vev#1{\left\langle #1\right\rangle}
+\def\hb{\hfill\break}
+
+\begin{document}
+%
+\centerline{\large\bf  \hfill Assignment I \hfill  4/8/18}
+
+\medskip
+\begin{description}
+\item[{\bf Reading:}] Lecture Notes. \\
+\item[{\bf Problems:} \hfill ] Due April 17, before class.
+\end{description}
+
+
+\medskip
+
+\begin{enumerate}
+
+\item
+{\bf Fabry-Perot Cavity} \\
+There exists a Fabry-Perot cavity with a length of 4000\,m. The \emph{power} transmission, $T_I$, of the input mirror is 1\% and the transmission of the end mirror, $T_E$, is 10\,ppm. The cavity is illuminated from the input side with a 100\,W laser having a wavelength of 437\,nm.
+\begin{itemize}
+
+\item[\bf a)] Using the steady state fields approach, solve for the transmitted \emph{power} as a function of cavity length.
+
+\item[\bf b)] Draw a diagram of the cavity, label each of the nodes, and write down the Adjacency Matrix, $A$, for the Fabry-Perot cavity. Solve for the System Matrix, $G$ using Mathematica or Python or otherwise, and show how one of the elements of $G$ can be used to find the solution in part a).
+\end{itemize}
+
+\item
+{\bf Frequency Response} \\
+In this problem we will compute the frequency response of a LIGO-like interferometer to gravitational waves. Assume that the results from above still hold.
+\begin{itemize}
+
+\item[\bf a)] Assume that we now drive the end mirror with a sinusoidal modulation having an amplitude of $x_0$ and a frequency, $\omega$. Write down an expression for the fields reflected from the mirror, utilizing the Jacobi-Anger expansion.
+
+\item[\bf b)] Use your knowledge of the \emph{frequency dependent} System Matrix derived above to compute an expression for the transmitted power. Make a plot of the \emph{transfer function} of the transmitted power as a function of modulation frequency (the y-axis should be in units of Watts/meter).
+\textbf{Hint:} Remember that the transmitted field will be the sum of the DC fields (computed above) and the AC fields.
+
+\item[\bf b)] Now write down a larger Adjacency Matrix which represents a Michelson interferometer with Fabry-Perot cavities in place of the usual end mirrors. Assume that there is a small asymmetry in the Michelson, such that the distance from the beamsplitter to one of the FP cavities is 100\,pm larger than the distance to the other cavity.
+Make a Bode plot of the \emph{transfer function} as in part b), but instead of the transmission of the FP cavity, use the anti-symmetric (detection) port as the readout.
+\end{itemize}
+
+\end{enumerate}
+
+\bigskip
+{\color{Sepia} \hrule}
+\end{document}

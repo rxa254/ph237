@@ -1,0 +1,127 @@
+\documentclass[11pt]{article}
+%\setlength{\oddsidemargin}{0in}
+%\setlength{\topmargin}{0.0in}
+%\setlength{\textwidth}{6.7in}
+%\setlength{\textheight}{8.5in}
+%\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage[usenames,dvipsnames]{xcolor}
+
+\usepackage{geometry}
+ \geometry{
+ letterpaper,
+ textwidth=6.5in
+ }
+\usepackage[utf8]{inputenc}
+%\usepackage{libertine}
+%\usepackage{libertinust1math}
+\usepackage[libertine,cmintegrals,cmbraces,vvarbb]{newtxmath}
+%\usepackage{newtxmath}
+%\usepackage[osf]{ebgaramond}
+\usepackage[T1]{fontenc}
+%\usepackage{palatino}
+\usepackage{microtype}
+
+\usepackage{fancyhdr}
+\setlength{\headheight}{15pt}% ...at least 15
+\usepackage[colorlinks=true]{hyperref}
+
+\newcommand{\zach}[1]{\textcolor{ForestGreen}{#1}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[RE,LO]{\textcolor{BlueViolet}{Gravitational Waves}}
+\fancyhead[LE,RO]{ph237: 2020}
+
+\fancyfoot[RE,LO]{\textcolor{Orange}{Caltech}}
+\fancyfoot[LE,RO]{\textcolor{Orange}{Physics, Math, and Astronomy}}
+
+%\input mydefs.tex
+\def\vev#1{\left\langle #1\right\rangle}
+\def\hb{\hfill\break}
+
+\begin{document}
+%
+\centerline{\large\bf  \hfill Assignment I \hfill  \today}
+
+\medskip
+\begin{description}
+\item[{\bf Reading:}] Lecture Notes. Hartle (Ch 23). \\
+\item[{\bf Problems:} \hfill ] Due April 16, before class.
+\end{description}
+
+
+\medskip
+
+\begin{enumerate}
+
+\item
+{\bf Radiation from a Spinning Dumbell} \\
+There exists a dumbell of length $L$ with a mass $M$ on each end,
+spinning with a frequency, $f_{bar}$. The
+material of the dumbell bar is of negligible mass compared to $M$.
+\begin{itemize}
+
+\item[\bf a)] Using the quadrupole approximation, write down and
+  expression for the strain, $h_{ij}$, at distances far away (relative to the
+  wavelength, $\lambda$, of the radiation.
+  
+
+\item[\bf b)] Considering realistic materials, compute the numerical
+  value for the strain at a distance of $\sim 3 \lambda$ (roughly the closest distance in the wave zone, where we can apply the quadrupole approximation) . For the bar
+  material you will have to choose a reasonable radius, such that the
+  total stress in the bar is less than the yield stress of the
+  material. 
+  
+%  \zach{Comments: It seems as though the bar material doesn't directly effect the GW's produced, since we are neglecting it's mass. What prevents the students from using an arbitrarily large radius, which can support arbitrarily large masses? Are they trying to engineer the biggest realistic strain? Perhaps we should recommend a resource for looking up Young moduli and yield strains? I recommend ch 11 of Thorne and Blandford, which may also provide a good reminder about stresses and strains.}
+
+\end{itemize}
+
+\item
+{\bf Binary Stars} \\
+Gravitational Radiation from binary stars.
+\begin{itemize}
+
+\item[\bf a)] The binary star system $\iota$ Boo is at a distance of
+  11.7 pc from the Earth. Assume that each star has a mass of 1
+  $M_{\odot}$ and that the system has an orbital period of 6.5
+  hours. Compute the frequency and amplitude of the strain as measured
+  at the earth. 
+For the purposes of this calculation, assume a
+  ``face-on'' inclination angle of the binary; i.e. its orbital
+  angular momentum vector points directly at the earth.
+
+\item[\bf b)] Assume that the total energy of the binary stars can
+  be well estimated by Newtonian mechanics (since they are from each
+  other and the velocities are non-relativistic). Compute the
+  gravitational wave luminosity, $L_{GW}$ as a function of orbital
+  radius $R$. Using this result, compute and plot the time evoultion
+  of $R$, assuming that the energy lost per orbit is small.
+
+\end{itemize}
+
+
+% \item
+% {\bf The Hulse-Taylor Binary} \\
+% In 1974, Russel Hulse and Joe Taylor discovered a pulsar in orbit
+% around another neutron star (receiving the 1993 Nobel Prize in
+% Physics) with a period $P = 7.75$\,hours. The analysis by Taylor and Weisberg in
+% the subsequent years showed that the decay of this orbit was in
+% agreement with General Relativity to high accuracy.
+% \begin{itemize}
+
+% \item[\bf a)] Plot the periastron shift as a function of time using
+%   the data from Zenodo?
+  
+%   \zach{Comment: Are we providing the data from Zenodo?}
+
+% \item[\bf b)] Does this agree with GR?
+
+% \zach{Comment: The Hulse-Taylor binary is an elliptical orbit, to answer this, doesn't one need to know how both orbital radius and eccentricity evolve with time?}
+
+\end{enumerate}
+
+\bigskip
+{\color{Sepia} \hrule}
+\end{document}
